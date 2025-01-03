@@ -16,7 +16,7 @@
   <body>
     <header>
       <div class="head">
-        <h1>Bill Split</h1>
+        <h1>Bill Splitter</h1>
         <div id="links">
           <a href="https://github.com/gptshubham" target="_blank">
             <img
@@ -28,5 +28,54 @@
         </div>
       </div>
     </header>
+    <main>
+      <div id="root">
+        <div class="container1">
+          <p for="bill_amount" class="left-label">Bill</p>
+          <div id="rupee-symbol">
+            <span>₹</span>
+            <input
+              type="number"
+              id="bill_amount"
+              name="bill_amount"
+              class="left-input"
+            />
+          </div>
+          <div class="tip disabled">
+            <p>Select Tip</p>
+            <div class="tip-btn-container">
+              <button class="tip-btn">5%</button>
+              <button class="tip-btn">10%</button>
+              <button class="tip-btn">15%</button>
+              <button class="tip-btn">25%</button>
+              <button class="tip-btn">50%</button>
+              <button class="tip-btn">75%</button>
+            </div>
+            <div class="custom-tip">
+              <input
+                type="number"
+                id="custom-tip-percentage"
+                class="grey-input"
+                placeholder="Custom Tip in Percentage"
+                disabled
+              />
+            </div>
+            <div>
+              <p>Number of people</p>
+              <input
+                type="number"
+                id="number-of-people"
+                class="grey-input"
+                name="number-of-people"
+                placeholder="Number of people"
+                disabled
+              />
+            </div>
+          </div>
+          <button class="generate-bill-btn" disabled>Generate Bill</button>
+        </div>
+        <div class="container2"></div>
+      </div>
+    </main>
   </body>
 </html>
