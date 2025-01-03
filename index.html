@@ -29,52 +29,55 @@
       </div>
     </header>
     <main>
-      <div id="root">
-        <div class="container1">
-          <p for="bill_amount" class="left-label">Bill</p>
-          <div id="rupee-symbol">
-            <span>₹</span>
+      <div class="bill-input">
+        <p for="bill_amount" class="left-label">Bill</p>
+        <div id="rupee-symbol">
+          <span>₹</span>
+          <input
+            type="number"
+            id="bill_amount"
+            name="bill_amount"
+            class="left-input"
+          />
+        </div>
+        <div class="tip disabled">
+          <p>Select Tip</p>
+          <div class="tip-btn-container">
+            <button class="tip-btn">5%</button>
+            <button class="tip-btn">10%</button>
+            <button class="tip-btn">15%</button>
+            <button class="tip-btn">25%</button>
+            <button class="tip-btn">50%</button>
+            <button class="tip-btn">75%</button>
+          </div>
+          <div class="custom-tip">
             <input
               type="number"
-              id="bill_amount"
-              name="bill_amount"
-              class="left-input"
+              id="custom-tip-percentage"
+              class="grey-input"
+              placeholder="Custom Tip in Percentage"
+              disabled
             />
           </div>
-          <div class="tip disabled">
-            <p>Select Tip</p>
-            <div class="tip-btn-container">
-              <button class="tip-btn">5%</button>
-              <button class="tip-btn">10%</button>
-              <button class="tip-btn">15%</button>
-              <button class="tip-btn">25%</button>
-              <button class="tip-btn">50%</button>
-              <button class="tip-btn">75%</button>
-            </div>
-            <div class="custom-tip">
-              <input
-                type="number"
-                id="custom-tip-percentage"
-                class="grey-input"
-                placeholder="Custom Tip in Percentage"
-                disabled
-              />
-            </div>
-            <div>
-              <p>Number of people</p>
-              <input
-                type="number"
-                id="number-of-people"
-                class="grey-input"
-                name="number-of-people"
-                placeholder="Number of people"
-                disabled
-              />
-            </div>
+          <div>
+            <p>Number of people</p>
+            <input
+              type="number"
+              id="number-of-people"
+              class="grey-input"
+              name="number-of-people"
+              placeholder="Number of people"
+              disabled
+            />
           </div>
-          <button class="generate-bill-btn" disabled>Generate Bill</button>
         </div>
-        <div class="container2"></div>
+        <button class="generate-bill-btn" disabled>Generate Bill</button>
+      </div>
+      <div class="bill-output">
+        <p>Tip Amount <span></span></p>
+        <p>Total <span></span></p>
+        <p>Each Person Bill <span></span></p>
+        <button class="reset-btn" disabled>Reset</button>
       </div>
     </main>
   </body>
