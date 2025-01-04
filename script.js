@@ -41,8 +41,11 @@ let tipPercentage = 0;
 tipButtonContainer.addEventListener('click', (e) => {
   // console.log(e.target.id);
   tipPercentage = Number(e.target.id);
-  console.log(tipPercentage);
+  // console.log(tipPercentage);
   // console.log(typeof tipPercentage);
+
+  // orange border
+  e.target.style.border = '5px solid orange';
 });
 
 // Custom Tip Amount
@@ -63,11 +66,49 @@ customTipAmountInput.addEventListener('change', (e) => {
 
 const numberOfPeopleInput = document.querySelector('#number-of-people');
 
-let numberOfPeople = 0;
+let numberOfPeople = 1;
 
-numberOfPeopleInput.addEventListener('change', (e) => {
-  numberOfPeople = Number(e.currentTarget.value);
-  console.log(numberOfPeople);
+numberOfPeopleInput.addEventListener('input', (e) => {
+  if (Number(e.currentTarget.value) > 0) {
+    numberOfPeople = Number(e.currentTarget.value);
+    console.log(numberOfPeople);
+  }
+
+  // unlocking generate bill button
+  generateBillButton.removeAttribute('disabled');
 });
 
 // Generate Bill Button
+
+generateBillButton.addEventListener('click', (e) => {
+  // tip amount
+  let tipAmount;
+  if (customTipAmount) {
+    tipAmount = customTipAmount;
+  } else if (tipPercentage) {
+    tipAmount = Math.round((bill * tipPercentage) / 100);
+  } else {
+    tipAmount = 0;
+  }
+  console.log(tipAmount);
+
+  // total
+  const total = bill + tipAmount;
+
+  console.log(total);
+
+  // each person bill
+  const eachPersonBill = Math.round(total / numberOfPeople);
+  console.log(eachPersonBill);
+
+  const tipAmountOutput = document.querySelector('#tip-amount-output');
+  tipAmountOutput.textContent = tipAmount;
+
+  const totalOutput = document.querySelector('#total-output');
+  totalOutput.textContent = total;
+
+  const eachPersonBillOutput = document.querySelector(
+    '#each-person-bill-output'
+  );
+  eachPersonBillOutput.textContent = eachPersonBill;
+});
